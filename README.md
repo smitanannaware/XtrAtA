@@ -1,4 +1,4 @@
-# Extraction of Surprising Aspects from Customer Reviews: Datasets and Experiments with Language Models
+# Extraction of Atypical Aspects from Customer Reviews: Datasets and Experiments with Language Models
 This repository contains the datasets described in the paper above.
 
 ## Dataset
