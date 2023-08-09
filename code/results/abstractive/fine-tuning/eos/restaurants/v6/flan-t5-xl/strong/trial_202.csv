@@ -1,0 +1,7 @@
+,bleu,preds,labels,train_nc_list
+0,,"model: flan-t5-xl
+learning_rate: 3e-05
+num_train_epochs: 30.0
+weight_decay: 0.001
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16","question: Based on the following restaurant review, what are the atypical aspects for a restaurant? context: A bit of self care and indulgence for when you want to relax and de-stress and if you don't want to go to the bar but have another option. Relax and enjoy. There's a lounge area behind. So you can take your drink in the lounge and kick back. Caffeinated choices are available. If you like your tastebuds teased in a different way, this is a treat. Perfect for yogis and if you like incense. (there's no incense, but it may remind you ...). Can be a spiritual experience as there are symbolism and custom associations provided if you want to try them. Just ask the very knowledgeable Server. It is what you make it. Whatever style makes you comfortable. You have to go inside the West Market to find it! Do not miss.",

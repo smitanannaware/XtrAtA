@@ -1,0 +1,52 @@
+List aspects other than food, service, price or ambience that are mentioned in the review.
+List topics in the review which are not about food, service, price or ambience.
+What aspects in the review are unexpected for a restaurant?
+What aspects in the review are rare in restaurants?
+What aspects in the review are atypical for restaurants?
+What aspects in the review are unusual for restaurants?
+What aspects in the review are uncommon for restaurants?
+What aspects in the review are out of the common for restaurants?
+What is interesting about the restaurant?
+What is interesting in the review?
+What caught the reviewer's attention?
+What caught the reviewer's attention that is atypical for restaurants?
+What aspects mentioned in the review are unexpected for a restaurant? List all of them.
+What unexpected things in the restaurant caught reviewer\s attention? List all of them.
+What caught the reviewer's attention that is atypical for restaurants? List all of them.
+List things other than food, service, price, or ambience which caught the reviewer\s attention.
+Identify the things which are exceptional for a restaurant. List all of them using comma.
+list what is atypical in the restaurant. Separate them using commas.
+list what is atypical in the restaurant.
+List aspects mentioned in the following restaurant review that are atypical for a restaurant. Separate them using commas.
+List aspects mentioned in the following restaurant review that are atypical for a restaurant.
+Based on the following restaurant review, what are the atypical aspects for a restaurant?
+Based on the following restaurant review, what are the atypical aspects for a restaurant? List all of them using commas.
+Based on the following restaurant review, list aspects that are atypical for a restaurant. Separate them using commas.
+Based on the following hotel review, what are the atypical aspects for a hotel?
+Based on the following hotel review, list aspects that are atypical for a hotel. Separate them using commas.
+Based on the following hair salon review, what are the atypical aspects for a hair salon?
+Based on the following hair salon review, list aspects that are atypical for a hair salon. Separate them using commas.
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? List all of them using commas.
+What aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. Generate all of them.
+What aspects in the review are atypical for restaurants? Atypical aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas.
+Which aspects in the review are atypical for restaurants? Atypical aspects are not related to service, food, drinks, or other items commonly associated with a restaurant. List all of them using commas. Generate empty list if there are none.
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas.
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas. Generate empty list if there are no such aspects.
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas. Generate <None> if there are no such aspects.
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas or write "" if there no unexpected aspects.
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas or write no response if there are no unexpected aspects.
+Given the following restaurant review, which aspects mentioned in the review are atypical for a restaurant? Atypical aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all of them using commas or write NIL if there are no atypical aspects.
+Given the following restaurant review, which aspects in the review are unexpected for a restaurant? Unexpected aspects are separate from service, food, drinks, or other items commonly associated with a restaurant. Write no response if there are no unexpected aspects.
+What are the atypical aspects for a restaurant based on the given review? Atypical aspects are separate from service, food, drinks, or other items commonly associated with a restaurant. Pick the sentences with atypical aspects and rephrase each sentences, for example, "The restaurat has an origami station.". If there are no atypical aspects output no response.
+What are the atypical aspects for a restaurant based on the given review? Atypical aspects are separate from service, food, drinks, or other items commonly associated with a restaurant. Pick the sentences with atypical aspects and rephrase each; for example, if A is an atypical aspect, then output "The restaurant has A.". If there are no atypical aspects, output "There are no atypical aspects.".
+What are the atypical aspects for a restaurant based on the given review? Atypical aspects are separate from service, food, drinks, or other items commonly associated with a restaurant. Pick the sentences with atypical aspects and rephrase each; for example, if A is an atypical aspect, then output "The restaurant has A.". If there are no atypical aspects, output "no response".
+Given the following restaurant review, which aspects mentioned in the review are atypical for a restaurant? atypical aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List base noun phrases of all atypical aspects using commas or write no response if there are no atypical aspects.
+What are the atypical aspects for a restaurant based on the given review? Atypical aspects are separate from service, food, drinks, or other items commonly associated with a restaurant. Rephrase each aspect; for example, if A is an atypical aspect, then output "The restaurant has A.". If there are no atypical aspects, output "no response".
+Given the following restaurant review, which aspects mentioned in the review are atypical for a restaurant? atypical aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all atypical aspects in base noun phrases form using commas or write no response if there are no atypical aspects.
+What are the aspects that are mentioned in the review that are atypical for a restaurant? Unlike common aspects such as service, food, or drinks, atypical aspects are not commonly associated with a restaurant. In the output, formulate each aspect A as "The restaurant has A.". If there are no atypical aspects, output "no response".
+What are the aspects that are mentioned in the review that are atypical for a restaurant? Unlike common aspects such as service, food, or drinks, atypical aspects are not commonly associated with a restaurant. In the output, formulate each aspect A as "The restaurant has A." or if there are no atypical aspects, output "no response".
+What are the atypical aspects for a restaurant based on the given review? Atypical aspects are separate from service, food, drinks, or other items commonly associated with a restaurant. In the output, formulate each aspect A as "The restaurant has A.". If there are no atypical aspects, output "There are no atypical aspects.".
+What are the aspects that are mentioned in the review that are atypical for a restaurant? Unlike common aspects such as service, food, drinks, parking, location, food items, prices, discounts, policies, or customer satisfaction, atypical aspects are not commonly associated with a restaurant. In the output, formulate each aspect A as "The restaurant has A.". If there are no atypical aspects, output "no response".
+Given the following restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service, food, drinks, parking, location, food items, prices, discounts, policies, customer satisfaction or other types of items that are commonly associated with a restaurant. List all of them using commas or write no response if there are no unexpected aspects.
+Given the following restaurant review, which aspects mentioned in the review are atypical for a restaurant? atypical aspects are not related to service, food, drinks, parking, location, food items, prices, discounts, policies, customer satisfaction or or other types of items that are commonly associated with a restaurant. List base noun phrases of all atypical aspects using commas or write no response if there are no atypical aspects.
+Given a restaurant review, which aspects mentioned in the review are unexpected for a restaurant? Unexpected aspects are not related to service or food or drinks or other types of items that are commonly associated with a restaurant. List all base noun phrases using commas or write no response if there are no unexpected aspects.

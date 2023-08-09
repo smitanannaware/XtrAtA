@@ -1,0 +1,7 @@
+,precision_bnp,recall_bnp,f1_bnp,precision_exactM,recall_exactM,f1_exactM,precision_partialTokenized,recall_partialTokenized,f1_partialTokenized,precision_partialWords,recall_partialWords,f1_partialWords,precision_clusters,recall_clusters,f1_clusters,preds,labels,train_nc_list
+0,,,,,,,,,,,,,,,,"model: flan-t5-xl
+learning_rate: 3e-05
+num_train_epochs: 30.0
+weight_decay: 0.001
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16",,

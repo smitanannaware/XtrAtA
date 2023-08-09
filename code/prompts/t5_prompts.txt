@@ -1,0 +1,7 @@
+Given the following restaurant review:\n{review}\n{instruction}\nNon-core aspects: {label}
+Q: Given the following restaurant review, {instruction}\n{review}\nA: {label}
+question: Given the following restaurant review, {instruction} context: {review}
+question: {instruction} context: {review}
+List the atypical aspects separated by commas about the restaurant in the below review and show your reasoning:\n\n{review}\n\n{label}
+{instruction}\n\n{review}
+question: {instruction} context: {review}\nanswer: {label}
