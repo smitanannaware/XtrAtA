@@ -4,11 +4,9 @@ import time
 import pandas as pd
 
 
-openai.organization = "org-wl3zexGh6Yzm0MvhR0wEL9xG"
-openai.api_key = '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'
-# erfan's api keys
-# openai.organization = "org-Mvb9JPXWWhgMfuSbG5StfwvI"
-# openai.api_key = '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'
+openai.organization = ""
+openai.api_key = ''
+
 
 def getChatGPTResponse(messages):
     response = openai.ChatCompletion.create(
