@@ -17,4 +17,6 @@ The table below shows details of the columns in the dataset.
 | abs_true_other | Abstractive annotation for other atypical aspects which do not fall in the strong or weak category. |
 | abs_true_strong_weak | Abstractive Strong and Weak atypical aspects are combined. |
 
+## Code
 
+Refinement is in progress to make scripts standalone.
