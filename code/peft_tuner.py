@@ -335,9 +335,7 @@ class PeftTuner():
 
             return result
 
-        if self.data_format_args.reasoning_enabled: result = self.evaluator.calculate_metrics_by_format(preds=decoded_preds, labels=decoded_labels)
-        else: result = self.evaluator.calculate_metrics(preds=decoded_preds, labels=decoded_labels)
-    
+        
         # Evaluate by Exact match, no penalization
         result_0 = self.evaluator.calculate_metrics_exact_match(preds=decoded_preds, labels=decoded_labels)
         # Evaluate by partial match with tokenization

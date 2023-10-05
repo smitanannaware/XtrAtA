@@ -262,7 +262,6 @@ class AdapterTuner():
 
             return result
 
-        result = self.evaluator.calculate_metrics(preds=decoded_preds, labels=decoded_labels)
         # Evaluate by Exact match, no penalization
         result_0 = self.evaluator.calculate_metrics_exact_match(preds=decoded_preds, labels=decoded_labels)
         # Evaluate by partial match with tokenization

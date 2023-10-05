@@ -51,7 +51,7 @@ if __name__ == '__main__':
     parser.add_argument("--prompt", default="What are the atypical aspects mentioned in the text below?", required=False)
 
     args = parser.parse_args()
-    base_dir = 'code/modular_approach'
+    base_dir = 'code'
     eval_set = pd.read_excel(f'{base_dir}/dataset/{args.data_dir}/test/test.xlsx')
     eval_set = eval_set[['review', 'true_strong', 'true_strong_weak', 'abs_true_strong_alt', 'abs_true_strong_weak_alt']]
     

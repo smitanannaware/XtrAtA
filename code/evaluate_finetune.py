@@ -242,8 +242,8 @@ if __name__ == "__main__":
         labels = labels_data['labels'].unique().tolist()
         labels = [np.ravel(eval(item)).tolist() for item in labels[1:]]
         # #print(labels)
-        #if score.domain == 'restaurant':
-            #train_nc_list = [labels_data['train_nc_list'].unique().tolist()]
+        if score.domain == 'restaurant':
+            train_nc_list = [labels_data['train_nc_list'].unique().tolist()]
         
         reviews_path = f'/projects/rbunescu_research/erfan_smita_space/ATICA/dialogue_system/restaurant_reviews_initiative/modular_approach/results/{args.model_dir}/shuffled_data_{args.file_name.split("_")[1]}.csv'
         reviews_data = pd.read_csv(reviews_path)
@@ -304,11 +304,10 @@ if __name__ == "__main__":
                     'p_clusters', 'r_clusters', 'f1_clusters'
                    ]
     else:
-        columns = [#'precision_bnp','recall_bnp','f1_bnp',
-                            'precision_exactM', 'recall_exactM', 'f1_exactM', 
-                            'precision_partialTokenized', 'recall_partialTokenized', 'f1_partialTokenized', 
-                            'precision_partialWords', 'recall_partialWords', 'f1_partialWords',
-                            'precision_clusters','recall_clusters','f1_clusters']
+        columns = ['precision_exactM', 'recall_exactM', 'f1_exactM', 
+                    'precision_partialTokenized', 'recall_partialTokenized', 'f1_partialTokenized', 
+                    'precision_partialWords', 'recall_partialWords', 'f1_partialWords',
+                    'precision_clusters','recall_clusters','f1_clusters']
     
     df2 = df[columns].mean().round(2)
     print(df2.head(10))
@@ -318,12 +317,7 @@ if __name__ == "__main__":
 
     if score.abstractive:
         
-        #print('preds:', score.preds)
-        #print('labels:', score.golds)
-
         bleu_micro_avg = round(score.bleu.compute(predictions=score.preds, references=score.golds, max_order=score.max_order)['bleu'], 2)
-        # rougeL_avg_scores = score.rouge.compute(predictions=score.preds, references=score.golds, rouge_types=['rougeL', 'rougeLsum'])
-        # rouge_score = f"Micro avg rougeL:{round(rougeL_avg_scores['rougeL'], 2)}, rougeLsum:{round(rougeL_avg_scores['rougeLsum'], 2)}"
         
         rougeN_avg_scores = score.evaluator.compute_rouge_aggregated(predictions=score.preds, references=score.golds)
         

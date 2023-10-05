@@ -141,10 +141,10 @@ class FineTuner():
         if 'weak' in self.data_format_args.target_column_name:
             self.type_of_nc = 'strong_weak'
         
-        self.result_dir = f'modular_approach/results/{self.data_format_args.result_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
-        self.logs_dir = f'modular_approach/logs/{self.data_format_args.result_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
-        self.model_dir = f'modular_approach/models/{self.data_format_args.result_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
-        self.data_folder = f'modular_approach/dataset/{self.data_format_args.data_dir}/'
+        self.result_dir = f'code/results/{self.data_format_args.result_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
+        self.logs_dir = f'code/logs/{self.data_format_args.result_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
+        self.model_dir = f'code/models/{self.data_format_args.result_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
+        self.data_folder = f'code/dataset/{self.data_format_args.data_dir}/'
         self.output_dir = f'{self.training_args.output_dir}{self.data_format_args.data_dir}/{self.model_name}/{self.type_of_nc}/'
         pathlib.Path(self.result_dir).mkdir(parents=True, exist_ok=True)
         pathlib.Path(self.logs_dir).mkdir(parents=True, exist_ok=True)
@@ -183,12 +183,6 @@ class FineTuner():
         else:
             data_df = pd.DataFrame(self.dataloader.dataset['test'])
             
-        
-        # if self.data_format_args.instruction_id:    column = 'label'
-        # elif self.data_format_args.abstractive: column = 'abs_true_nc_1'
-        # else:   column = 'true_nc'
-        column = self.data_format_args.target_column_name
-
         if self.data_format_args.eos:
             data_df = data_df.replace('None',str(''))
 
@@ -223,8 +217,8 @@ class FineTuner():
     
 
     def get_model(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(get_huggingface_path(self.model_args.model_path))
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(get_huggingface_path(self.model_args.model_path))#.to(self.device)
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_args.model_path)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_args.model_path)#.to(self.device)
 
         self.data_collator = DataCollatorWithPadding(tokenizer=self.tokenizer)
         print(self.dataset)
@@ -234,7 +228,7 @@ class FineTuner():
         
 
     def model_init(self):   
-        return AutoModelForSeq2SeqLM.from_pretrained(get_huggingface_path(self.model_args.model_path))#.to(self.device)
+        return AutoModelForSeq2SeqLM.from_pretrained(self.model_args.model_path)#.to(self.device)
 
     def collate_fn(self,examples):
                 return self.tokenizer.pad(examples, padding="longest", return_tensors="pt")
@@ -316,9 +310,6 @@ class FineTuner():
 
             return result
 
-        if self.data_format_args.reasoning_enabled: result = self.evaluator.calculate_metrics_by_format(preds=decoded_preds, labels=decoded_labels)
-        else: result = self.evaluator.calculate_metrics(preds=decoded_preds, labels=decoded_labels)
-    
         # Evaluate by Exact match, no penalization
         result_0 = self.evaluator.calculate_metrics_exact_match(preds=decoded_preds, labels=decoded_labels)
         # Evaluate by partial match with tokenization
@@ -420,13 +411,7 @@ class FineTuner():
     def train(self):
         print("Training Model : ", self.model_name)
 
-        if self.data_format_args.abstractive:
-            metric = 'bleu'
-        else:
-            metric = 'f1'
-        
         training_args = Seq2SeqTrainingArguments(
-            #f"{self.model_name}-finetuned-squad",
             output_dir=self.output_dir+f'trial_{self.data_format_args.trial}',
             overwrite_output_dir = self.training_args.overwrite_output_dir,
             evaluation_strategy = self.training_args.evaluation_strategy,
@@ -440,26 +425,15 @@ class FineTuner():
             logging_dir = self.logs_dir+f'trial_{self.data_format_args.trial}',
             log_level = self.training_args.log_level,
             logging_strategy = self.training_args.logging_strategy,
-            # save_strategy='no',
-            # save_total_limit=2,
-            # load_best_model_at_end=False
             save_strategy=self.training_args.evaluation_strategy,
             save_total_limit=5,
             load_best_model_at_end=True,
             metric_for_best_model='loss'
         )
-        #print(training_args)
-        metrics = []
-        # accelerator = Accelerator()
-        
-                    
-        # optimizer = torch.optim.Adam(self.model.parameters(), lr=self.training_args.learning_rate)
-
        
         i = 1
         for train_ds, val_ds in self.split_dataset():
             print('Training Fold : ', i)
-            #if i >= 4:
             print(f"Training set samples: {len(train_ds)} \t Testset samples: {len(val_ds)}")
             trainer = Seq2SeqTrainer(
                 model_init = self.model_init,
@@ -475,38 +449,9 @@ class FineTuner():
             trainer.train()
 
             trainer.save_model(f'{self.model_dir}trial_{self.data_format_args.trial}/out_fold{i}')
-
-            # if self.data_format_args.abstractive:
-            # print(f"Training set samples: {len(train_ds)} \t Testset samples: {len(val_ds)}")
-            # trainer = Seq2SeqTrainer(
-            #     model_init = self.model_init,
-            #     args=training_args,
-            #     train_dataset=train_ds,
-            #     eval_dataset=val_ds,
-            #     tokenizer = self.tokenizer,
-            #     data_collator=self.data_collator,
-            #     compute_metrics=self.compute_metrics,
-            #     callbacks = [EarlyStoppingCallback(early_stopping_patience=10)]
-            # )
-        
-            # trainer.train()
-
-            # trainer.save_model(f'{self.model_dir}trial_{self.data_format_args.trial}/out_fold{i}')
-                
-            i += 1
             
+            i += 1
 
-            # best_run = trainer.hyperparameter_search(n_trials=5, direction="maximize",
-            #     resources_per_trial={
-            #         "cpu": 2,
-            #         "gpu": 4
-            #     },
-            #     hp_space=self.my_hp_space_ray)
-            # print('Best run : ', best_run)
-            #metrics.append(trainer.evaluate())
-        #print(pd.DataFrame.from_dict(metrics).mean())
-        #print(metrics)
-        #training_args.
         self.output_results()
         print('Training Finished!!!')
         
